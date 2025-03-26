@@ -11,11 +11,11 @@ app.get('/contacts', (req, res) => {
 });
 
 app.post('/contacts', (req, res) => {
-    const { name, phone, email } = req.body;
+    const { name, phone, email, note } = req.body;
     if (!name || !phone) {
       return res.status(400).json({ error: 'Name and phone are required' });
     }
-    const newContact = { id: contacts.length + 1, name, phone, email };
+    const newContact = { id: contacts.length + 1, name, phone, email, note };
     contacts.push(newContact);
     res.status(201).json(newContact);
   });
